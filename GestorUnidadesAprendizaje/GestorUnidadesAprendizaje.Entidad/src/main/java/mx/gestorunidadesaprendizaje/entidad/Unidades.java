@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package mx.devs.gestorunidadesaprendizaje.entidad;
+package mx.gestorunidadesaprendizaje.entidad;
 
 import java.io.Serializable;
 import java.util.Collection;
@@ -33,9 +33,20 @@ import javax.xml.bind.annotation.XmlTransient;
     , @NamedQuery(name = "Unidades.findByNombre", query = "SELECT u FROM Unidades u WHERE u.nombre = :nombre")
     , @NamedQuery(name = "Unidades.findByHorasC", query = "SELECT u FROM Unidades u WHERE u.horasC = :horasC")
     , @NamedQuery(name = "Unidades.findByHorasT", query = "SELECT u FROM Unidades u WHERE u.horasT = :horasT")
-    , @NamedQuery(name = "Unidades.findByHorasL", query = "SELECT u FROM Unidades u WHERE u.horasL = :horasL")
-    , @NamedQuery(name = "Unidades.findByUnidadescol", query = "SELECT u FROM Unidades u WHERE u.unidadescol = :unidadescol")})
+    , @NamedQuery(name = "Unidades.findByHorasL", query = "SELECT u FROM Unidades u WHERE u.horasL = :horasL")})
 public class Unidades implements Serializable {
+
+    // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
+    @Column(name = "horasC")
+    private Float horasC;
+    @Column(name = "horasT")
+    private Float horasT;
+    @Column(name = "horasL")
+    private Float horasL;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "unidadesidUnidad")
+    private Collection<Asignacion> asignacionCollection;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "unidadesidUnidad")
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -48,20 +59,6 @@ public class Unidades implements Serializable {
     @Basic(optional = false)
     @Column(name = "nombre")
     private String nombre;
-    @Basic(optional = false)
-    @Column(name = "horasC")
-    private float horasC;
-    @Basic(optional = false)
-    @Column(name = "horasT")
-    private float horasT;
-    @Basic(optional = false)
-    @Column(name = "horasL")
-    private float horasL;
-    @Basic(optional = false)
-    @Column(name = "unidadescol")
-    private String unidadescol;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "unidadesidUnidad")
-    private Collection<Asignacion> asignacionCollection;
 
     public Unidades() {
     }
@@ -70,14 +67,13 @@ public class Unidades implements Serializable {
         this.idUnidad = idUnidad;
     }
 
-    public Unidades(Integer idUnidad, int clave, String nombre, float horasC, float horasT, float horasL, String unidadescol) {
+    public Unidades(Integer idUnidad, int clave, String nombre, float horasC, float horasT, float horasL) {
         this.idUnidad = idUnidad;
         this.clave = clave;
         this.nombre = nombre;
         this.horasC = horasC;
         this.horasT = horasT;
         this.horasL = horasL;
-        this.unidadescol = unidadescol;
     }
 
     public Integer getIdUnidad() {
@@ -104,37 +100,8 @@ public class Unidades implements Serializable {
         this.nombre = nombre;
     }
 
-    public float getHorasC() {
-        return horasC;
-    }
 
-    public void setHorasC(float horasC) {
-        this.horasC = horasC;
-    }
 
-    public float getHorasT() {
-        return horasT;
-    }
-
-    public void setHorasT(float horasT) {
-        this.horasT = horasT;
-    }
-
-    public float getHorasL() {
-        return horasL;
-    }
-
-    public void setHorasL(float horasL) {
-        this.horasL = horasL;
-    }
-
-    public String getUnidadescol() {
-        return unidadescol;
-    }
-
-    public void setUnidadescol(String unidadescol) {
-        this.unidadescol = unidadescol;
-    }
 
     @XmlTransient
     public Collection<Asignacion> getAsignacionCollection() {
@@ -169,5 +136,30 @@ public class Unidades implements Serializable {
     public String toString() {
         return "mx.devs.gestorunidadesaprendizaje.entidad.Unidades[ idUnidad=" + idUnidad + " ]";
     }
+
+    public Float getHorasC() {
+        return horasC;
+    }
+
+    public void setHorasC(Float horasC) {
+        this.horasC = horasC;
+    }
+
+    public Float getHorasT() {
+        return horasT;
+    }
+
+    public void setHorasT(Float horasT) {
+        this.horasT = horasT;
+    }
+
+    public Float getHorasL() {
+        return horasL;
+    }
+
+    public void setHorasL(Float horasL) {
+        this.horasL = horasL;
+    }
+
     
 }

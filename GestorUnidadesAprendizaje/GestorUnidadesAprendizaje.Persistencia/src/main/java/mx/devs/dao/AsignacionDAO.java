@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package mx.devs.gestorunidadesaprendizaje.persistencia;
+package mx.devs.dao;
 
-import mx.devs.gestorunidadesaprendizaje.entidad.Asignacion;
-import mx.devs.gestorunidadesaprendizaje.persistencia.AbstractDAO;
+import mx.gestorunidadesaprendizaje.entidad.Asignacion;
+import mx.devs.dao.AbstractDAO;
 
 /**
  *

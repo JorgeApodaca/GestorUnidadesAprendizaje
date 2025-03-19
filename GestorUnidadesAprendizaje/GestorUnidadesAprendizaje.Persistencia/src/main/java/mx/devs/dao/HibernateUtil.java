@@ -1,4 +1,4 @@
-package mx.devs.gestorunidadesaprendizaje.persistencia;
+package mx.devs.dao;
 
 import org.hibernate.HibernateException;
 import org.hibernate.ResourceClosedException;

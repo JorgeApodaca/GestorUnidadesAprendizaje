@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package mx.devs.gestorunidadesaprendizaje.persistencia;
+package mx.devs.dao;
 
 import java.util.List;
 
@@ -21,7 +21,7 @@ public interface InterfaceDAO<T> {
     public T find(Integer id);
 
     public List<T> findAll();
-
+    
     public void saveOrUpdate(T instance);
 
     public List<T> executeQuery(String query);

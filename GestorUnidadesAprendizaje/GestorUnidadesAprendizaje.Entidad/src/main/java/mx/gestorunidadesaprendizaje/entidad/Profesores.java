@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package mx.devs.gestorunidadesaprendizaje.entidad;
+package mx.gestorunidadesaprendizaje.entidad;
 
 import java.io.Serializable;
 import java.util.Collection;
@@ -37,13 +37,15 @@ import javax.xml.bind.annotation.XmlTransient;
     , @NamedQuery(name = "Profesores.findByRfc", query = "SELECT p FROM Profesores p WHERE p.rfc = :rfc")})
 public class Profesores implements Serializable {
 
+    @Basic(optional = false)
+    @Column(name = "numProfesor")
+    private int numProfesor;
+
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
     @Column(name = "idProfesor")
     private Integer idProfesor;
-    @Column(name = "numProfesor")
-    private Integer numProfesor;
     @Column(name = "nombre")
     private String nombre;
     @Column(name = "apellido")
@@ -71,13 +73,6 @@ public class Profesores implements Serializable {
         this.idProfesor = idProfesor;
     }
 
-    public Integer getNumProfesor() {
-        return numProfesor;
-    }
-
-    public void setNumProfesor(Integer numProfesor) {
-        this.numProfesor = numProfesor;
-    }
 
     public String getNombre() {
         return nombre;
@@ -143,6 +138,14 @@ public class Profesores implements Serializable {
     @Override
     public String toString() {
         return "mx.devs.gestorunidadesaprendizaje.entidad.Profesores[ idProfesor=" + idProfesor + " ]";
+    }
+
+    public int getNumProfesor() {
+        return numProfesor;
+    }
+
+    public void setNumProfesor(int numProfesor) {
+        this.numProfesor = numProfesor;
     }
     
 }

@@ -61,9 +61,9 @@ Contributor(s):
         <property name="c3p0.timeout">100</property>
         <!-- Nota: Aqui deben ir todas las entidades que se formaron de su base de 
         datos en este caso se crearon las siguiente -->
-        <mapping class="mx.devs.gestorunidadesaprendizaje.entidad.Asignacion"/>
-        <mapping class="mx.devs.gestorunidadesaprendizaje.entidad.Profesores"/>
-        <mapping class="mx.devs.gestorunidadesaprendizaje.entidad.Unidades"/>
-        <mapping class="mx.devs.gestorunidadesaprendizaje.entidad.Usuarios"/>
+        <mapping class="mx.gestorunidadesaprendizaje.entidad.Asignacion"/>
+        <mapping class="mx.gestorunidadesaprendizaje.entidad.Profesores"/>
+        <mapping class="mx.gestorunidadesaprendizaje.entidad.Unidades"/>
+        <mapping class="mx.gestorunidadesaprendizaje.entidad.Usuarios"/>
     </session-factory>
 </hibernate-configuration>

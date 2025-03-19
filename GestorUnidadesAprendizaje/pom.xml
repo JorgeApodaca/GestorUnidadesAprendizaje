@@ -8,6 +8,8 @@
     <modules>
         <module>GestorUnidadesAprendizaje.Entidad</module>
         <module>GestorUnidadesAprendizaje.Persistencia</module>
+        <module>GestorUnidadesAprendizaje.Negocio</module>
+        <module>GestorUnidadesAprendizaje.Asignacion</module>
     </modules>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

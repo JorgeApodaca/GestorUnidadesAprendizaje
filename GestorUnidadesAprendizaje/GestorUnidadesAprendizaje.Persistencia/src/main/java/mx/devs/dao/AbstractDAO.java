@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package mx.devs.gestorunidadesaprendizaje.persistencia;
+package mx.devs.dao;
 
 /**
  *
@@ -14,13 +14,14 @@ import java.lang.reflect.ParameterizedType;
 import java.math.BigInteger;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
-import mx.devs.gestorunidadesaprendizaje.persistencia.InterfaceDAO;
 import java.util.List;
 //import mx.avanti.siract.dao.InterfaceDAO;
 import org.hibernate.SQLQuery;
 import org.hibernate.metadata.ClassMetadata;
 import org.hibernate.transform.Transformers;
-
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
 /**
  * Generic abstract class avoid to extends another DAO for make generic methods
  * with the other DAO
@@ -464,6 +465,8 @@ public abstract class AbstractDAO<PK extends Serializable, T> implements Interfa
         }
         return result;
     }
+    
+    
 
     @Override
     public T executeTransformationUniqueQuery(String query, String... param) {
